@@ -1,0 +1,9 @@
+<app-search-by-code (addZipCode)="onAddLocation($event)"></app-search-by-code>
+<app-current-weather
+        [weather]="weather"
+        [weatherIdx]="i"
+        [zipCode]="getZipCodes[i]"
+        (removeWeather)="onRemoveWeather($event)"
+        *ngFor="let weather of weathers; trackBy: trackFn; let i = index"
+>
+</app-current-weather>

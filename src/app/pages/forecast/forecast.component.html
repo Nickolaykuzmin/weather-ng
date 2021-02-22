@@ -1,0 +1,35 @@
+<h4>Template for 5-day forecast page:</h4>
+<div *ngIf="forecastWeather?.list" class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for {{forecastWeather.city.name}}</h3>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let forecast of listOfForecastDays | keyvalue; trackBy: trackFn; let i = index;">
+        <ng-container
+          >{{ forecast.value.dt * 1000 | date: 'EEEE, MMM d' }}: {{ forecast.value.weatherType }} - Min:
+          {{ forecast.value.main.temp_min }} - Max: {{ forecast.value.main.temp_max }}
+        </ng-container>
+        <ng-container [ngSwitch]="forecast.value.weatherType">
+          <img class="icon"
+            *ngSwitchCase="weatherTypes.Clear"
+            src="https://www.angulartraining.com/images/weather/sun.png"
+          />
+          <img class="icon"
+            *ngSwitchCase="weatherTypes.Clouds"
+            src="https://www.angulartraining.com/images/weather/clouds.png"
+          />
+          <img class="icon"
+            *ngSwitchCase="weatherTypes.Rain"
+            src="https://www.angulartraining.com/images/weather/rain.png"
+          />
+          <img class="icon"
+            *ngSwitchCase="weatherTypes.Snow"
+            src="https://www.angulartraining.com/images/weather/snow.png"
+          />
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  <button routerLink="/home" class="btn btn-success" tabindex="0" id="mainPageBtn">&lt; Back to main page</button>
+</div>

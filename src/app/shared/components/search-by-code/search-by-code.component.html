@@ -1,0 +1,19 @@
+<div class="well">
+  <h2>Enter a zipcode:</h2>
+  <input
+    [(ngModel)]="zipCodeControl"
+    class="form-control"
+    placeholder="Zipcode"
+    type="number"
+    id="addLocation"
+  />
+  <br />
+  <button
+    [disabled]="!zipCodeControl"
+    (click)="onAddLocation()"
+    class="btn btn-primary"
+    id="addLocationBtn"
+  >
+    Add location
+  </button>
+</div>

@@ -1,0 +1,37 @@
+<div>
+  <div class="well flex">
+    <div>
+      <h3>{{ weather.name }}</h3>
+      <h4>Current conditions: {{ weather.weather[0].main }}</h4>
+      <h4>Temperatures today:</h4>
+      <p>
+        Current {{ weather.main.temp }} - Max {{ weather.main.temp_max }} - Min
+        {{ weather.main.temp_min }}
+      </p>
+      <p>
+        <a [routerLink]="['/forecast', weather.code]">Show 5-day forecast for {{weather.name}}</a>
+      </p>
+    </div>
+    <div>
+      <span (click)="removeWeather.emit(weatherIdx)" class="close">×</span>
+      <ng-container [ngSwitch]="weather.weather[0].main">
+        <img
+          *ngSwitchCase="weatherTypes.Clear"
+          src="https://www.angulartraining.com/images/weather/sun.png"
+        />
+        <img
+          *ngSwitchCase="weatherTypes.Clouds"
+          src="https://www.angulartraining.com/images/weather/clouds.png"
+        />
+        <img
+          *ngSwitchCase="weatherTypes.Rain"
+          src="https://www.angulartraining.com/images/weather/rain.png"
+        />
+        <img
+          *ngSwitchCase="weatherTypes.Snow"
+          src="https://www.angulartraining.com/images/weather/snow.png"
+        />
+      </ng-container>
+    </div>
+  </div>
+</div>
