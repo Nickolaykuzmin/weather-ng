@@ -5,7 +5,12 @@
     "module": "es2020",
     "typeRoots": ["node_modules/@types"],
     "types": ["jasmine", "node"],
-    "lib": ["es2017", "dom"]
+    "lib": ["es2017", "dom"],
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@shared/*": ["app/shared/*"],
+    }
   },
   "exclude": ["src/test.ts", "**/*.spec.ts"]
 }
