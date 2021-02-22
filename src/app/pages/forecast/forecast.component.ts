@@ -10,7 +10,7 @@ import { WeatherService } from '../../shared/services/weather.service';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.css'],
+  styleUrls: ['./forecast.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForecastComponent implements OnInit, OnDestroy {

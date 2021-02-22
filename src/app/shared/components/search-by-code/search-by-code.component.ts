@@ -3,7 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-search-by-code',
   templateUrl: './search-by-code.component.html',
-  styleUrls: ['./search-by-code.component.css'],
+  styleUrls: ['./search-by-code.component.scss'],
 })
 export class SearchByCodeComponent implements OnInit {
   public zipCodeControl: number = null;

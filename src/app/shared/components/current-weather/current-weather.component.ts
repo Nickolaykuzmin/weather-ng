@@ -12,7 +12,7 @@ import { SingleWeather } from '../../models/interfaces/single-weather';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
-  styleUrls: ['./current-weather.component.css'],
+  styleUrls: ['./current-weather.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrentWeatherComponent implements OnInit {
