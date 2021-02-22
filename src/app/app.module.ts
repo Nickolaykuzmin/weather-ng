@@ -6,12 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { NgxLocalStorageModule } from 'ngx-localstorage';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { routes } from './routes';
 import { CurrentWeatherComponent } from './shared/components/current-weather/current-weather.component';
 import { SearchByCodeComponent } from './shared/components/search-by-code/search-by-code.component';
 import { ApiInterceptor } from './shared/interceptors/api.interceptor';
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 import { localStorageConfig } from './shared/models/constants';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { StorageService } from './shared/services/storage.service';
@@ -28,6 +30,7 @@ import { WeatherService } from './shared/services/weather.service';
     FormsModule,
     NgxLocalStorageModule.forRoot(localStorageConfig),
     AlertModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
@@ -43,6 +46,7 @@ import { WeatherService } from './shared/services/weather.service';
     StorageService,
     WeatherService,
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
